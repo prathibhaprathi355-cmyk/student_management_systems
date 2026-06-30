@@ -1,0 +1,25 @@
+<h1>Create new student</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="">Name</label>
+    <input type="text" name="name" required>
+    <br>
+
+    <label for="">Roll</label>
+    <input type="number" name="roll">
+    <br>
+
+    <label for="">Markd</label>
+    <input type="number" name="marks">
+    <br>
+
+    <label for="">Course</label>
+    <input type="text" name="course">
+    <br>
+
+    <label for="">Admission Type</label>
+    <input type="text" name="admsnType">
+    <br>
+    <button>Save</button>
+
+</form>

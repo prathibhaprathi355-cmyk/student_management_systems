@@ -1,0 +1,51 @@
+<h1>Student Details</h1>
+<style>
+   
+    table{
+        /* border: 2px, solid;
+         */
+         border-collapse: collapse;
+    }
+     table ,th{
+        border: 2px, solid;
+        padding: 8px;
+    }
+    td{
+        padding: 8px;
+        border: 2px solid;
+    }
+</style>
+<table>
+    <th>Sl.No</th>
+    <th>Name</th>
+    <th>Roll</th>
+    <th>Marks</th>
+    <th>Course</th>
+    <th>Admission Type</th>
+    <th>Action</th>
+
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td><a href="{% url 'detail' student.id %}"> {{ student.name }}</a></td>
+            <td>{{ student.roll }}</td>
+            <td>{{ student.marks }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.admsnType }}</td>
+            <td>
+                <button><a href="{% url 'update' student.id %}">update</a>
+                </button>
+                <button><a href="{% url 'delete' student.id %}">Delete</a>
+                </button>
+            </td>
+           
+                
+        </tr>
+
+        {% endfor%}
+
+    </tbody>
+</table>
+<button><a href="{% url 'create' %}">Create student</a></button>
+
