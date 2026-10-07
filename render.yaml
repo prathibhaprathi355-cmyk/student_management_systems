@@ -1,9 +1,3 @@
-databases:
-  - name: sms-db
-    databaseName: sms
-    user: sms_user
-    plan: free
-
 services:
   - type: web
     name: sms-web
@@ -12,10 +6,6 @@ services:
     buildCommand: "./build.sh"
     startCommand: "gunicorn sms.wsgi:application"
     envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: sms-db
-          property: connectionString
       - key: SECRET_KEY
         generateValue: true
       - key: WEB_CONCURRENCY
